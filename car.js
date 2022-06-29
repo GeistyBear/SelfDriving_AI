@@ -48,6 +48,7 @@ class Car {
         this.angle -= 0.03 * flip;
       }
     }
+
     this.x -= Math.sin(this.angle) * this.speed;
     this.x -= Math.cos(this.angle) * this.speed;
   }
@@ -74,4 +75,4 @@ class Car {
       }
     }
   }
-    
+}    
