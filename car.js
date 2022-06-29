@@ -14,8 +14,13 @@ class Car {
     this.angle = 0;
 
     this.controls = new Controls();
+
   }
-  update() {
+
+  update(){
+    this.#move();
+  
+    #move(){
     if (this.controls.forward) {
       this.speed += this.acceleration;
     }
@@ -47,20 +52,26 @@ class Car {
     this.x -= Math.cos(this.angle) * this.speed;
   }
 
-  draw(ctx) {
-    ctx.save();
-    ctx.translate(this.x, this.y);
-    ctx.rotate(-this.angle);
-
-    ctx.beginPath();
-    ctx.rect(
-      this.x - this.width / 2,
-      this.y - this.height / 2,
-      this.width,
-      this.height
-    );
-    ctx.fill();
-
-    ctx.restore();
+  update() {
+    this.#move();
   }
-}
+  
+  #move(){
+    draw(ctx){
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(-this.angle);
+      
+      ctx.beginPath();
+      ctx.rect(
+        this.x - this.width / 2,
+        this.y - this.height / 2,
+        this.width,
+        this.height
+        );
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+  }
+    
